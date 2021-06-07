@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>forEach,map,filter,reduce</h1>
+    <p>The forEach() method calls a function once for each element in an array, in order.
+        
+        Syntax-->array.forEach(function(currentValue, index, arr), thisValue).
+        example:
+
+        var sum = 0;
+        var numbers = [65, 44, 12, 4];
+        numbers.forEach(myFunction);
+        
+        function myFunction(item) {
+          sum += item;
+          document.getElementById("demo").innerHTML = sum;
+        }
+    </p>
+    <p>
+       The map() method: The purpose of this method is to render the items in a list.
+        The JavaScript array map () method calls the specified function and iterate over all elements of an array for every array element and returns the new array.
+     This method doesn't change the original array.
+
+     Syntax-->array.map(function(currentValue, index, arr), thisValue).
+     example:
+
+     var persons = [
+  {firstname : "Malcom", lastname: "Reynolds"},
+  {firstname : "Kaylee", lastname: "Frye"},
+  {firstname : "Jayne", lastname: "Cobb"}
+];
+
+
+function getFullName(item) {
+  var fullname = [item.firstname,item.lastname].join(" ");
+  return fullname;
+}
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = persons.map(getFullName);
+}
+    </p>
+    <p>
+The filter()method:The arr.filter () method is used to create a new array from a given array
+ consisting of only those elements from the given array which satisfy a condition set by the argument method.
+
+ Syntax-->array.filter(function(currentValue, index, arr), thisValue).
+
+ example:
+ var ages = [32, 33, 16, 40];
+
+ function checkAdult(age) {
+   return age >= 18;
+ }
+ 
+ function myFunction() {
+   document.getElementById("demo").innerHTML = ages.filter(checkAdult);
+ }
+    </p>
+    <p>
+       The reduce()method:It reduces the array to a single value after iterating over each item(from left-to-right).
+       This method takes a callback function as a parameter.
+       The return value of the function is stored in an accumulator (result/total).
+     The callback function accepts four arguments. 
+
+     Syntax-->array.reduce(function(total, currentValue, currentIndex, arr), initialValue).
+
+     example:
+
+     var numbers = [175, 50, 25];
+
+document.getElementById("demo").innerHTML = numbers.reduce(myFunc);
+
+function myFunc(total, num) {
+  return total - num;
+}
+    </p>
+    <h1>function declaration and arrow function</h1>
+    <p>
+        function declaration:A javascript function is a fundamental building block of code that is designed to define once and called multiple times to perform a different-different task.
+         Also, there are different ways to declare the function in javascript.
+          A javascript function is executed when "something" invokes it (calls it) using the invoke method.
+          
+          *A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by: The name of the function. 
+          A list of parameters to the function, enclosed in parentheses and separated by commas.
+           The JavaScript statements that define the function, enclosed in curly brackets
+
+           example:
+           // function declaration
+           function functionName(parameter){
+               --statement--
+           }
+    </p>
+    <p>
+        Arrow function:Arrow functions are a new way to write anonymous function expressions in JavaScript.
+        The arrow function syntax is a bit shorter and does not bind its own this, arguments, super, or new.target.
+         It also solves problems of (this)  keyword in JavaScript.
+         These function expressions are best suited for non-method functions and they can not be used as constructors.
+
+         example:
+         // Arrow function expression
+         const square = (x) => {
+             return x*x;
+         }
+
+         // concise Arrow function expression
+
+         const square = x => x*x;
+        
+    </p>
+    <h1>find and findIndex</h1>
+    <p>
+        find():The find() method returns the value of the first element in an array that pass a test (provided as a function).
+
+        The find() method executes the function once for each element present in the array:
+        
+        If it finds an array element where the function returns a true value, find() returns the value of that array element (and does not check the remaining values)
+        Otherwise it returns undefined
+
+        Syntax-->array.find(function(currentValue, index, arr),thisValue).
+
+        example:
+        var ages = [3, 10, 18, 20];
+
+function checkAdult(age) {
+  return age >= 18;
+}
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = ages.find(checkAdult);
+}
+    </p>
+    <p>
+        findIndex():The findIndex() method returns the index of the first element in an array that pass a test (provided as a function).
+
+        The findIndex() method executes the function once for each element present in the array:
+        
+        If it finds an array element where the function returns a true value, findIndex() returns the index of that array element (and does not check the remaining values)
+        Otherwise it returns -1
+
+        Syntax-->array.findIndex(function(currentValue, index, arr), thisValue).
+
+        example:
+        var ages = [3, 10, 18, 20];
+
+function checkAdult(age) {
+  return age >= 18;
+}
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = ages.findIndex(checkAdult);
+}
+    </p>
+    <h1>If you like to filter out one object element in an array which method do you like to use: filter or find ? Explain</h1>
+    <p>
+        I will use filter() method because it filters our required value,
+        where as find() method searches only a particular element then it wont search for the other element in an array.
+    </p>
+    <h1> var, let and const   </h1>
+    <p>Var:In javascript,a variable can be declared after it has been used (or) A varible can be
+        used before it has been declared.
+         *This means no matter where functions and variables are declared ,they are moved to the top of their 
+        scope regardless of whether their scope is global or local.
+       * Functional scope declared inside of a function.
+    *Global scope declared outside of a function.
+
+    Syntax-->var varname = value;
+    
+    example:
+    function greetPerson(name){
+        if(name==="sampath"){
+            var greet="hello sampath";
+        }else {
+            var greet="hi there";
+        }
+        console.log(greet);
+    }
+    greetPerson("sampath");
+    </p>
+    <p>
+        let:The let statement declares a block scope local variable, optionally initializing it to a value.
+
+        let allows you to declare variables that are limited in scope to the block, statement, or expression on which it is used.
+         This is unlike the var keyword, which defines a variable globally, or locally to an entire function regardless of block scope.
+
+         example:
+         function letTest() {
+            let x = 1;
+            if (true) {
+            let x = 2; // different variable
+            console.log(x); // 2
+            }
+            console.log(x); // 1
+           }
+    </p>
+    <p>const:Constant values are those which can not be changed after declared once.
+        The scope of const is block-scoped it means it can not be accessed from outside of block.
+        JavaScript const variables must be assigned a value when they are declared.
+
+        example:
+        const PI = 3.141592653589793;
+            PI = 3.14;      // This will give an error
+            PI = PI + 10;   // This will also give an error
+    </p>
+</body>
+</html>
